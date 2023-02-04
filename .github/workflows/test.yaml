@@ -1,0 +1,16 @@
+name: test
+
+on:
+  pull_request
+
+jobs:
+  build:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: kevin-manatal/empty-translation-tags-detection-action@v1.2.0
+        id: missingtags
+        with:
+          full-path: './src/localize/'
+      - run: echo "result ${{ steps.missingtags.outputs.found-missing-translations }}"
