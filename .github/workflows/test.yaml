@@ -9,8 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: kevin-manatal/empty-translation-tags-detection-action@v1.2.0
+      - uses: kevin-manatal/empty-translation-tags-detection-action@v1.2.1
         id: missingtags
         with:
           full-path: './src/localize/'
       - run: echo "result ${{ steps.missingtags.outputs.found-missing-translations }}"
+      - uses: kevin-manatal/empty-translation-tags-detection-action@v1.2.1
+        id: missingtags2
+        with:
+          full-path: './src/localize2/'
+      - run: echo "result ${{ steps.missingtags2.outputs.found-missing-translations }}"      
+      - uses: kevin-manatal/empty-translation-tags-detection-action@v1.2.1
+        id: missingtags3
+        with:
+          full-path: './src/localize3/'
+      - run: echo "result ${{ steps.missingtags3.outputs.found-missing-translations }}"
